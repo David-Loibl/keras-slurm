@@ -4,14 +4,17 @@ from keras.models import Sequential
 from keras.layers import Dense
 import numpy
 from time import time
+import os 
 
 t0 = time()
+
+dir_path = os.path.dirname(os.path.realpath(__file__))
 
 # fix random seed for reproducibility
 seed = 7
 numpy.random.seed(seed)
 # load pima indians dataset
-dataset = numpy.loadtxt("/home/loibldav/Git/keras-slurm/data/pima-indians-diabetes.data.csv", delimiter=",")
+dataset = numpy.loadtxt(dir_path + "/data/pima-indians-diabetes.data.csv", delimiter=",")
 # split into input (X) and output (Y) variables
 X = dataset[:,0:8]
 Y = dataset[:,8]
